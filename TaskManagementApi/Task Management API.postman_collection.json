@@ -1,0 +1,286 @@
+{
+  "info": {
+    "_postman_id": "cd7f8d87-03f6-4ddb-8e3d-087d375f94ff",
+    "name": "Task Management API",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58732164",
+    "_collection_link": "https://go.postman.co/collection/58732164-cd7f8d87-03f6-4ddb-8e3d-087d375f94ff?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Create Task",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Write report\",\r\n  \"description\": \"Q3 summary\",\r\n  \"status\": \"Pending\",\r\n  \"dueDate\": \"2026-10-10T12:00:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5091/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get All Tasks",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5091/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Task by ID",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5091/api/tasks/280ee9f8-5383-4e0e-9261-172295ac4659",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks",
+            "280ee9f8-5383-4e0e-9261-172295ac4659"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Task",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Write report\",\r\n  \"description\": \"Q3 summary\",\r\n  \"status\": \"Completed\",\r\n  \"dueDate\": \"2026-10-10T12:00:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5091/api/tasks/280ee9f8-5383-4e0e-9261-172295ac4659",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks",
+            "280ee9f8-5383-4e0e-9261-172295ac4659"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Task",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5091/api/tasks/280ee9f8-5383-4e0e-9261-172295ac4659",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks",
+            "280ee9f8-5383-4e0e-9261-172295ac4659"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task - empty title (400)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"\",\r\n  \"status\": \"Pending\",\r\n  \"dueDate\": \"2026-10-10T12:00:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5091/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task - missing due date (400)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Write report\",\r\n  \"description\": \"Q3 summary\",\r\n  \"status\": \"Pending\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5091/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Task - title too long (400)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"012345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890\",\r\n  \"status\": \"Pending\",\r\n  \"dueDate\": \"2026-10-10T12:00:00\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:5091/api/tasks",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Task by Status",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5091/api/",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            ""
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get Task (paged)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:5091/api/tasks?page=1&pagesize=2",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "5091",
+          "path": [
+            "api",
+            "tasks"
+          ],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "pagesize",
+              "value": "2"
+            },
+            {
+              "key": "status",
+              "value": "pending",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        }
+      },
+      "response": []
+    }
+  ]
+}
