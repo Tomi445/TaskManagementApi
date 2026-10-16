@@ -12,7 +12,7 @@ namespace TaskManagementApi.Controllers;
 
 [ApiController]
 [Route("api/tasks")]
-[Authorize]   // every endpoint now requires a logged-in user
+[Authorize]   
 public class TasksController : ControllerBase
 {
     private readonly ITaskRepository _repository;
